@@ -76,6 +76,7 @@ header div:last-child a{
 }
 .addItem input::placeholder{
     text-transform: uppercase;
+    opacity: 0.7;
 }
 .addItem button{
     flex-grow: 1;
@@ -85,7 +86,20 @@ header div:last-child a{
     border: none;
 
 }
-
+@media(max-width:567px){
+    .addItem input::placeholder{
+       font-size: 12px;
+       font-weight: bold;
+    }
+    .addItem button{
+        font-size: 10px;
+        font-weight: bold;
+    
+    }
+    .addItem{
+        height: 50px;
+    }
+}
 section{
     margin-top: 60px;
     text-align: center;
