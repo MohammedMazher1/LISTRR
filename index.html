@@ -51,7 +51,7 @@
         $("input").val("");
         $(".empty").css("display", "none");
         $(".content").css("display", "block");
-        $(".items").append(`<div onclick="completeTask(this)"  class="item"  ondblclick="removeitem(this)">
+        $(".items").append(`<div onclick="completeTask(this)"  class="item">
               <p>
                 ${text}
               </p>
@@ -64,7 +64,7 @@
           $("input").val("");
           $(".empty").css("display", "none");
           $(".content").css("display", "block");
-          $(".items").append(`<div onclick="completeTask(this)" class="item" ondblclick="removeitem(this)">
+          $(".items").append(`<div onclick="completeTask(this)" class="item">
               <p>
                 ${text}
               </p>
@@ -72,21 +72,20 @@
             </div>`);
         }
       });
-      $('.item').click(function(){
-        $('.item').css('border','1px solid')
-      });
+
       $('#clear').click(function(){
         $(".items").html("");
         $(".content").css("display", "none");
         $(".empty").css("display", "flex");
       });
-      function removeitem(element){
-        element.remove();
-      };
-      function completeTask(ele){
-        ele.querySelector('p').style.textDecoration='line-through';
-        ele.querySelector('img').style.display='block';
-      };
+
+      $('.items').on("click",'div',function(){
+        $(this).toggleClass('complete')
+      });
+
+      $('.items').on("dblclick",'div',function(){
+        this.remove();
+      });
     </script>
   </body>
 </html>

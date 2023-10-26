@@ -182,5 +182,15 @@ footer button{
     font-size: 40px;
 }
 
+/* complete style */
+.complete{
+    opacity: 0.5;
+}
+.complete p {
+    text-decoration: line-through;
+}
+.complete img {
+    display: block;
+}
 
 
