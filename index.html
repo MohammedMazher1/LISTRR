@@ -29,7 +29,8 @@
         <section>
           <h1>today's tasks</h1>
           <hr style="opacity: 0.5" />
-          <div class="items"></div>
+          <div class="items">
+          </div>
           <footer>
             <span>**single click to mark complete</span>
             <span>**double click to remove form list</span>
@@ -50,10 +51,11 @@
         $("input").val("");
         $(".empty").css("display", "none");
         $(".content").css("display", "block");
-        $(".items").append(`<div class="item"  ondblclick="removeitem(this)">
+        $(".items").append(`<div onclick="completeTask(this)"  class="item"  ondblclick="removeitem(this)">
               <p>
                 ${text}
               </p>
+              <img src="1698287520399.jpg" alt="complete">
             </div>`);
       });
       $("#input").keyup(function (event) {
@@ -62,12 +64,16 @@
           $("input").val("");
           $(".empty").css("display", "none");
           $(".content").css("display", "block");
-          $(".items").append(`<div   class="item"  ondblclick="removeitem(this)">
+          $(".items").append(`<div onclick="completeTask(this)" class="item" ondblclick="removeitem(this)">
               <p>
                 ${text}
               </p>
+              <img src="1698287520399.jpg" alt="complete">
             </div>`);
         }
+      });
+      $('.item').click(function(){
+        $('.item').css('border','1px solid')
       });
       $('#clear').click(function(){
         $(".items").html("");
@@ -76,7 +82,11 @@
       });
       function removeitem(element){
         element.remove();
-      }
+      };
+      function completeTask(ele){
+        ele.querySelector('p').style.textDecoration='line-through';
+        ele.querySelector('img').style.display='block';
+      };
     </script>
   </body>
 </html>

@@ -120,6 +120,10 @@ section{
     width: 550px;
     text-align: start;
     border-top: 8px solid #28f7d4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 .items > .item:hover{
     border-top: 8px solid #ec5f0d;
@@ -131,6 +135,11 @@ section{
     .items > .item{
         width: 100%;
     }
+}
+.item img{
+    width: 40px;
+    opacity: 0.7;
+    display: none;
 }
 footer{
     margin-top: 50px;
