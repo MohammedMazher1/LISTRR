@@ -192,5 +192,18 @@ footer button{
 .complete img {
     display: block;
 }
+.fa-bell{
+    font-size: 26px;
+    transition: 0.5s;
+    transform-origin:top ;
+    color: #ec5f0d;
+}
+@keyframes anim{
+    0%{
+        transform: rotate(30deg)
+    }
+    100%{
+        transform: rotate(-30deg)
+}
 
-
+}
