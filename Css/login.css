@@ -1,0 +1,76 @@
+
+/* login page style  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+.root{
+    position: relative;
+    background-image: url('../img/back.png');
+    width: 100%;
+    height: 100vh;
+}
+.root > .login{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+    opacity: 80%;
+    box-shadow: 20px 20px 0px beige;
+}
+@media (max-width: 992px) {
+    .root > .login{
+        margin: auto;
+        width: 400px;
+    }
+}
+.login .fields{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.login .fields input{
+    padding: 12px 35px;
+    width: 350px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+.login .fields input::placeholder{
+    opacity: 0.5;
+    padding-left: 6rem;
+}
+.login .fields > div{
+    display: flex;
+    position: relative;
+}
+
+.login .fields > div i{
+    position: absolute;
+    left: 10px;
+    font-size: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ec5f0d;
+    opacity: 0.7;
+}
+.login .fields button{
+    border: none;
+    outline: none;
+    background-color: #ec5f0d;
+    color: white;
+    width: 200px;
+    margin: auto;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    
+}

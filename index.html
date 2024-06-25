@@ -1,98 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Css/style.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/login.css" />
     <title>LISTRR</title>
     <link rel="stylesheet" href="Css/normalize.css" />
     <link rel="stylesheet" href="Css/all.min.css" />
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <span class="fa fa-file"></span>
-        <h2>LISSTRR</h2>
-      </div>
-      <div class="links">
-        <a href="#">Account</a>
-        <a href="#">log out</a>
-      </div>
-    </header>
-    <main class="container">
-      <div class="addItem">
-        <input id="input"type="text" placeholder=" insert your list item here"/>
-        <button id="create-item">create list</button>
-      </div>
-      <span class="fa fa-bell"></span>
-      <div class="content">
-        <section>
-          <h1>today's tasks</h1>
-          <hr style="opacity: 0.5" />
-          <div class="items">
-          </div>
-          <footer>
-            <span>**single click to mark complete</span>
-            <span>**double click to remove form list</span>
-            <br />
-            <button id="clear">clear all taskes</button>
-          </footer>
-        </section>
-      </div>
-      <div class="empty">
-        <p>no list yet</p>
-        <span class="fa fa-file"></span>
-      </div>
-    </main>
-    <script src="js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <div class="login">
+            <!-- <form method=""> -->
+                <div class="fields">
+                    <div>
+                        <i class="fi fi-sr-user"></i>
+                        <input type="text" name="username" id="username" placeholder="admin">
+                    </div>
+                    <div>
+                        <i class="fi fi-sr-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="admin">
+                    </div>
+                    <button onclick="loginFu()">log in</button>
+                </div>
+                <a href="task.html" hidden id="tasks"></a>
+            <!-- </form> -->
+
+        </div>
+    </div>
     <script>
-      $("#create-item").click(function () {
-        const text = $("#input").val();
-        $("input").val("");
-        $(".empty").css("display", "none");
-        $(".content").css("display", "block");
-        $(".items").append(`<div  class="item">
-              <p>
-                ${text}
-              </p>
-              <img src="1698287520399.jpg" alt="complete">
-            </div>`);
-            $('fa-bell').css('animation','anim 0.3s 10 alternate')
-      });
-      $("#input").keyup(function (event) {
-        if (event.keyCode == 13) {
-          const text = $("#input").val();
-          $("input").val("");
-          $(".empty").css("display", "none");
-          $(".content").css("display", "block");
-          $(".items").append(`<div class="item">
-              <p>
-                ${text}
-              </p>
-              <img src="1698287520399.jpg" alt="complete">
-            </div>`);
-          $('.fa-bell').css('animation','anim 0.3s 7 alternate')
-          setTimeout(function(){
-            $('.fa-bell').css('animation','')
-          },1500)
-
+        function loginFu(){
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if(username == 'admin' && password=='admin'){
+                document.getElementById('tasks').click();
+            }else{
+                alert('your name and passowrd id not correct ')
+            }
         }
-      });
-
-      $('#clear').click(function(){
-        $(".items").html("");
-        $(".content").css("display", "none");
-        $(".empty").css("display", "flex");
-      });
-
-      $('.items').on("click",'div',function(){
-        $(this).toggleClass('complete')
-      });
-
-      $('.items').on("dblclick",'div',function(){
-        this.remove();
-      });
     </script>
-  </body>
+</body>
+
 </html>
